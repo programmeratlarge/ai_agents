@@ -1,0 +1,80 @@
+Here's how you can **fork, modify, and sync a GitHub repository using GitHub Desktop** — all without overwriting your own code:
+
+---
+
+## 🪄 Step-by-Step Guide Using GitHub Desktop
+
+---
+
+### ✅ 1. **Fork the Repository on GitHub.com**
+
+1. Go to the original repository on GitHub.
+2. Click the **Fork** button (top-right).
+3. Choose your account.
+
+---
+
+### ✅ 2. **Clone Your Fork in GitHub Desktop**
+
+1. Open **GitHub Desktop**.
+2. Go to **File > Clone Repository**.
+3. Choose the "URL" tab or your account’s "Your repositories" tab.
+4. Select your **forked repo**.
+5. Click **Clone**.
+
+---
+
+### ✅ 3. **Make and Commit Your Changes**
+
+* Use your code editor or GitHub Desktop’s “Open in Editor” button to add or modify files.
+* Back in GitHub Desktop:
+
+  1. See your changes listed under the "Changes" tab.
+  2. Write a commit message.
+  3. Click **Commit to main** (or your working branch).
+  4. Click **Push origin** to send your changes to GitHub.
+
+---
+
+### ✅ 4. **Connect the Original Repo as `upstream` (using Git CLI temporarily)**
+
+> GitHub Desktop doesn’t support adding `upstream` directly via GUI, but you can do it once using a terminal:
+
+1. In GitHub Desktop, go to **Repository > Open in Terminal**.
+2. Add the upstream remote:
+
+   ```bash
+   git remote add upstream https://github.com/original-user/original-repo.git
+   ```
+
+---
+
+### ✅ 5. **Fetch and Sync Changes from Upstream**
+
+Whenever the original repo updates and you want to pull in changes:
+
+1. In GitHub Desktop, go to **Repository > Open in Terminal**.
+
+2. Fetch and merge upstream:
+
+   ```bash
+   git fetch upstream
+   git merge upstream/main  # or upstream/master
+   ```
+
+   > You can also create a branch from upstream before merging, if you want to be extra safe.
+
+3. Back in GitHub Desktop, if there are merge conflicts, they’ll be listed. Resolve them and commit the merge.
+
+4. Click **Push origin** to update your GitHub fork.
+
+---
+
+### 🔁 Optional: Keep Your Work in a Separate Branch
+
+* In GitHub Desktop: **Branch > New Branch** (e.g., `my-feature`)
+* Do your edits there, while keeping `main` clean for syncing with upstream
+
+---
+
+Would you like a one-time script or a GitHub Actions workflow to automatically sync upstream changes into your fork’s `main` branch?
